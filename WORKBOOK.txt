@@ -1,50 +1,56 @@
 bikes {
   details {
     name: "HarleyDavidson"
-    id: 4444
-    model: "BobCat"
-  }
-  insurances {
-  }
-  last_updated {
-    seconds: 1570619325
-  }
-}
-bikes {
-  details {
-    name: "Triumph"
-    id: 333
-    model: "Bonnneville"
-  }
-  insurances {
-  }
-  last_updated {
-    seconds: 1570619372
-  }
-}
-bikes {
-  details {
-    name: "RoyalEnfield"
-    id: 222
-    model: "TB500"
+    id: 8898
+    model: "Bobcat"
   }
   ridetype: STREET
   insurances {
+    number: "HD3342"
   }
   last_updated {
-    seconds: 1570619481
+    seconds: 1570628303
   }
 }
 bikes {
   details {
     name: "Yamaha"
-    id: 666
-    model: "Hayabusa"
+    id: 7765
+    model: "R1"
   }
   ridetype: RACING
   insurances {
+    number: "YMH0982"
   }
   last_updated {
-    seconds: 1570619574
+    seconds: 1570628340
+  }
+}
+bikes {
+  details {
+    name: "RoyalEnfield"
+    id: 3341
+    model: "TB350"
+  }
+  ridetype: CRUISER
+  insurances {
+    number: "RE4433"
+  }
+  last_updated {
+    seconds: 1570628366
+  }
+}
+bikes {
+  details {
+    name: "Triumph"
+    id: 4523
+    model: "Bonnevilee"
+  }
+  ridetype: STREET
+  insurances {
+    number: "TRM9724"
+  }
+  last_updated {
+    seconds: 1570628390
   }
 }

@@ -68,12 +68,12 @@ void PromptForBikeDetails(nik_tutorial::Bike* bike) {
     string number;
     getline(cin, number);
 
-    insurance->set_number(number);
-
     if (number.empty()) {
       break;
     }
     
+    insurance->set_number(number);
+
     }
 
     /*--------------
