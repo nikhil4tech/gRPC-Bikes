@@ -1,0 +1,101 @@
+// See README.txt for information and build instructions.
+//
+// Note: START and END tags are used in comments to define sections used in
+// tutorials.  They are not part of the syntax for Protocol Buffers.
+//
+// To get an in-depth walkthrough of this file and the related examples, see:
+// https://developers.google.com/protocol-buffers/docs/tutorials
+
+// [START declaration]
+syntax = "proto3";
+package nik_tutorial;
+
+import "google/protobuf/timestamp.proto";
+// [END declaration]
+
+// [START java_declaration]
+option java_package = "com.example.tutorial";
+option java_outer_classname = "WorkBookProtos";
+// [END java_declaration]
+
+// [START csharp_declaration]
+option csharp_namespace = "Google.Protobuf.Examples.WorkBook";
+// [END csharp_declaration]
+
+
+// Interface exported by the server.
+service BikeGuide {
+    // A simple RPC.
+    //
+    // Obtains the InsuranceNumber of a given bike.
+    //
+    // A string with an empty name is returned if id is not valid
+    rpc GetInsuranceNumber(BikeDetails) returns (InsuranceNumber) {}
+  
+    // A server-to-client streaming RPC.
+    //
+    // Obtains the accident reports of the bike with given id.  Results are
+    // streamed rather than returned at once (e.g. in a response message with a
+    // repeated field), as there can be a lot of report for given id.
+    rpc GetAccidentReport(InsuranceNumber) returns (stream AccidentDetails) {}
+  
+    // A client-to-server streaming RPC.
+    //
+    // Accepts a stream of AccidentDetails on a given id , returning a
+    // IncidentSummary(total expense) when the recording is completed.
+    rpc RecordIncident(stream AccidentDetails) returns (IncidentSummary) {}
+  
+    // A Bidirectional streaming RPC.
+    //
+    //rpc RouteChat(stream RouteNote) returns (stream RouteNote) {}
+  }
+
+  message BikeDetails{
+    string name = 1;
+    int32 id = 2;  // Unique ID number for this bike.
+    string model = 3;
+  }  
+
+ 
+  message InsuranceNumber {
+    string number = 1;
+  }
+
+  message AccidentDetails {
+    string date = 1;
+    string location = 2;
+    string damaged_parts = 3;
+    InsuranceNumber insurances = 4;
+  }
+
+  message IncidentSummary{      
+    int32 total_expense = 1;  
+  }
+
+  enum RideType {
+    DEFAULT = 0;
+    STREET = 1;
+    CRUISER = 2;
+    RACING = 3;
+  }
+// [START messages]
+message Bike {
+ 
+  BikeDetails details = 1;
+
+  RideType ridetype = 2;
+  
+  repeated InsuranceNumber insurances = 3;
+
+  repeated AccidentDetails reports = 4;
+
+  repeated IncidentSummary expenses = 5;
+
+  google.protobuf.Timestamp last_updated = 6;
+}
+
+// Our work book file is just one of these.
+message WorkBook {
+  repeated Bike bikes = 1;
+}
+// [END messages]

@@ -1,0 +1,50 @@
+bikes {
+  details {
+    name: "HarleyDavidson"
+    id: 4444
+    model: "BobCat"
+  }
+  insurances {
+  }
+  last_updated {
+    seconds: 1570619325
+  }
+}
+bikes {
+  details {
+    name: "Triumph"
+    id: 333
+    model: "Bonnneville"
+  }
+  insurances {
+  }
+  last_updated {
+    seconds: 1570619372
+  }
+}
+bikes {
+  details {
+    name: "RoyalEnfield"
+    id: 222
+    model: "TB500"
+  }
+  ridetype: STREET
+  insurances {
+  }
+  last_updated {
+    seconds: 1570619481
+  }
+}
+bikes {
+  details {
+    name: "Yamaha"
+    id: 666
+    model: "Hayabusa"
+  }
+  ridetype: RACING
+  insurances {
+  }
+  last_updated {
+    seconds: 1570619574
+  }
+}
